@@ -6,6 +6,7 @@ import * as Yup from 'yup';
 import { useHistory, Link } from 'react-router-dom';
 
 import api from '../../services/api';
+import unknown from '../../assets/unknown.jpg';
 
 import { useToast } from '../../hooks/toast';
 
@@ -107,7 +108,7 @@ const Profile: React.FC = () => {
         });
       }
     },
-    [addToast, history],
+    [addToast, history, updateUser],
   );
 
   const handleAvatarChange = useCallback(
@@ -150,7 +151,10 @@ const Profile: React.FC = () => {
           onSubmit={handleSubmit}
         >
           <AvatarInput>
-            <img src={user.avatar_url} alt={user.name} />
+            <img
+              src={user.avatar_url ? user.avatar_url : unknown}
+              alt={user.name}
+            />
             <label htmlFor="avatar">
               <FiCamera />
 

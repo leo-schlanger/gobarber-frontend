@@ -6,6 +6,8 @@
 
 ![GoBarber](./src/assets/logo.png)
 
+![CreateProfileGif](./src/assets/createprofile.gif)
+
 ![languages](https://img.shields.io/github/languages/count/leo-schlanger/gobarber-frontend?style=plastic)
 <space><space>
 ![toplanguage](https://img.shields.io/github/languages/top/leo-schlanger/gobarber-frontend?style=plastic)
