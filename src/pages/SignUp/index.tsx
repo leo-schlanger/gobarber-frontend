@@ -89,7 +89,7 @@ const SignUp: React.FC = () => {
               type="password"
               placeholder="Senha"
             />
-            <Button type="submit">Cadastro</Button>
+            <Button type="submit">Cadastrar</Button>
           </Form>
 
           <Link to="/">

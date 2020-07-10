@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, ChangeEvent } from 'react';
+import React, { useCallback, useRef, ChangeEvent, useMemo } from 'react';
 import { FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { FiMail, FiUser, FiLock, FiCamera, FiArrowLeft } from 'react-icons/fi';
@@ -131,6 +131,10 @@ const Profile: React.FC = () => {
     [addToast, updateUser],
   );
 
+  const imageURL = useMemo(() => {
+    return user.avatar_url ? user.avatar_url : unknown;
+  }, [user.avatar_url]);
+
   return (
     <Container>
       <header>
@@ -151,14 +155,16 @@ const Profile: React.FC = () => {
           onSubmit={handleSubmit}
         >
           <AvatarInput>
-            <img
-              src={user.avatar_url ? user.avatar_url : unknown}
-              alt={user.name}
-            />
+            <img data-testid="image" src={imageURL} alt={user.name} />
             <label htmlFor="avatar">
               <FiCamera />
 
-              <input type="file" id="avatar" onChange={handleAvatarChange} />
+              <input
+                type="file"
+                id="avatar"
+                onChange={handleAvatarChange}
+                data-testid="input-file"
+              />
             </label>
           </AvatarInput>
 
